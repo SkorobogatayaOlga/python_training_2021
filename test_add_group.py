@@ -1,12 +1,5 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.support.ui import Select
-from selenium.webdriver.common.exceptions import NoSuchElementException
-from selenium.webdriver.common.exceptions import NoAlertPresentExcceptions
-from selenium.webdriver.firefox.webdriver import WebDriver
-from selenium.webdriver.common.action_chains import ActionChains
-import time, unittest, re
 
 def is_alert_present(wd):
     try:
@@ -30,7 +23,7 @@ class test_add_group(unittest.TestCase):
         wd.find_element_by_name("user").send_keys("admin")
         wd.find_element_by_name("pass").click()
         wd.find_element_by_name("pass").send_keys("secret")
-        wd.find_element_css_selector("input[type=\submit\"]").click()
+        wd.find_element_by_name("submit").click()
         wd.find_element_by_link_text("groups").click()
         wd.find_element_by_name("new").click()
         wd.find_element_by_name("group_name").click()
